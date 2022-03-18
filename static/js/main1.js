@@ -13,14 +13,22 @@ $(document).ready(function () {
 
     if(sessionStorage.getItem('type') == 'document') {
         $("#kg").remove();
+        $("#kg1").remove();
+        $("#kg2").remove();
         $("#ice").remove();
+        $("#ice1").remove();
     }
     else if(sessionStorage.getItem('type') == 'food' || sessionStorage.getItem('type') == 'food(cold)' || sessionStorage.getItem('type') == 'package') {
         $("#pages_no").remove();
+        $("#pages_no1").remove();
+        $("#pages_no2").remove();
         var ice = $('#ice')
+        var ice1 = $('#ice1')
         $("#ice").remove();
+        $("#ice1").remove();
         if(sessionStorage.getItem('type') == 'food' || sessionStorage.getItem('type') == 'food(cold)'){
             $(".ice").append(ice);
+            $(".ice1").append(ice1);
         }
     }
     

@@ -61,6 +61,15 @@
                         <div class="mt-3" id="kg1">
                             <b>Weight in Kilograms : </b>Up to {{map_form.weight.value}} kg
                         </div>
+                        <div class="mt-4 ice1">
+                            <div class="mt-3" id="ice1">
+                                {% if map_form.cold.value == True %}
+                                    <b>Cold Product : </b>Yes
+                                {% else %}
+                                    <b>Cold Product : </b>No
+                                {% endif %}
+                            </div>
+                        </div>
                         <div class="mt-3" id="pages_no1">
                             <b>No. of Pages : </b> {{map_form.pages.value}}
                         </div>
