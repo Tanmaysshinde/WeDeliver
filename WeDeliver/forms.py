@@ -59,6 +59,11 @@ class maps(forms.ModelForm):
                                     widget=forms.Select(attrs={'id': 'kg_value',
                                                                'onchange': 'price_map_info();',
                                                                'class' : 'btn dropdown-toggle btn-sm map-form-select'}))
+                                                            
+    cold = forms.BooleanField(required=False,
+                                    widget=forms.CheckboxInput(attrs={'id' : 'ice_value',
+                                                               'onchange': 'price_map_info();',
+                                                               'class': 'cursorpointer',}))
 
     pages = forms.CharField(widget=forms.TextInput(attrs={'id' : 'pages_value',
                                                         'onchange': 'price_map_info();',

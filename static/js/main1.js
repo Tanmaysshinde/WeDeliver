@@ -13,13 +13,15 @@ $(document).ready(function () {
 
     if(sessionStorage.getItem('type') == 'document') {
         $("#kg").remove();
-        $("#kg1").remove();
-        $("#kg2").remove();
+        $("#ice").remove();
     }
-    else if(sessionStorage.getItem('type') == 'food' || sessionStorage.getItem('type') == 'package') {
+    else if(sessionStorage.getItem('type') == 'food' || sessionStorage.getItem('type') == 'food(cold)' || sessionStorage.getItem('type') == 'package') {
         $("#pages_no").remove();
-        $("#pages_no1").remove();
-        $("#pages_no2").remove();
+        var ice = $('#ice')
+        $("#ice").remove();
+        if(sessionStorage.getItem('type') == 'food' || sessionStorage.getItem('type') == 'food(cold)'){
+            $(".ice").append(ice);
+        }
     }
     
     //Login Modal
@@ -146,8 +148,6 @@ var directionsDisplay = new google.maps.DirectionsRenderer();
 //bind the DirectionsRenderer to the map
 directionsDisplay.setMap(map);
 
-
-
 //define calcRoute function
 function calcRoute() {
     //create request
@@ -173,7 +173,7 @@ function calcRoute() {
         } else {
             //delete route from map
             directionsDisplay.setDirections({ routes: [] });
-            //center map in London
+            //center map in Mumbai
             map.setCenter(myLatLng);
 
             //show error message
@@ -208,11 +208,22 @@ function price_map_info() {
     else if(sessionStorage.getItem('type') == 'food' || sessionStorage.getItem('type') == 'package') {
         var quantity = $('#kg_value').val();
     }
-    var price = sessionStorage.getItem('price');
+
+    if(sessionStorage.getItem('type') == 'food' && document.getElementById("ice_value").checked == true){
+        sessionStorage.setItem("type", "food(cold)")
+        var price = parseFloat(sessionStorage.getItem('price')) + 2;
+    }
+    else {
+        var price = sessionStorage.getItem('price');
+    }
+    if(sessionStorage.getItem('type') == 'food(cold)' && document.getElementById("ice_value").checked == false){
+        sessionStorage.setItem("type", "food")
+    }
     var distance = 10;
-    var total_price = Math.round(quantity * price * distance);
-    var price = 'Amt : ' + total_price + ' Rs.';
-    document.getElementById('price').innerHTML = price;
+    var total_price = parseInt(Math.round(quantity * price * distance));
+    console.log(total_price)
+    var pricehtml = 'Amt : ' + total_price + ' Rs.';
+    document.getElementById('price').innerHTML = pricehtml;
     var info = {
         'name1' : $('#name1').val(),
         'address1' : $('#address1').val(),
@@ -229,7 +240,7 @@ function price_map_info() {
         sessionStorage.setItem('name', $('#name1').val());
         sessionStorage.setItem('number', $('#number1').val());
         $.ajax({
-            url: "map",
+            url: "placeorder",
             type: "GET",
             data: info,
         });
@@ -687,12 +698,21 @@ function logout() {
     sessionStorage.clear()
 }
 
-function check() {
-    if(document.getElementById("rememberme").checked == false){
-      document.getElementById("rememberme").checked = true;
-      }else if(document.getElementById("rememberme").checked == true){
-      document.getElementById("rememberme").checked = false;
+function check(id) {
+    if(id == 0){
+        if(document.getElementById("rememberme").checked == false){
+            document.getElementById("rememberme").checked = true;
+            }else if(document.getElementById("rememberme").checked == true){
+            document.getElementById("rememberme").checked = false;
+        }
+    }
+    if(id == 1){
+        if(document.getElementById("ice_value").checked == false){
+            document.getElementById("ice_value").checked = true;
+            }else if(document.getElementById("ice_value").checked == true){
+            document.getElementById("ice_value").checked = false;
       }
+    }
 }
 
 function view_password(view_password_id) {

@@ -163,7 +163,7 @@ def home(request):
     context['profile'] = my_profile
     return render(request, 'home.html', context)
 
-def map(request):
+def placeorder(request):
     loginform()
     signupform()
     request.session.modified = True
@@ -211,7 +211,7 @@ def map(request):
             context['payment'] = payment
         context['amount'] = amt
         return render(request, 'confirm.html', context)
-    return render(request, 'map.html', context)
+    return render(request, 'placeorder.html', context)
 
 def aboutus(request):
     loginform()
@@ -504,7 +504,7 @@ def success(request):
             if key2 == 'method':
                 order_info.mode_of_payment = value2
                 context['modeofpayment'] = value2
-    context['pickup_point_name'], context['pickup_point_address'], context['pickup_point_phone_number'], context['date'] = name1, address1, number1, date.today()
+    context['pickup_point_name'], context['pickup_point_address'], context['pickup_point_phone_number'], context['date'], context['type'] = name1, address1, number1, date.today(), types
     context['delivery_point_name'], context['delivery_point_address'], context['delivery_point_phone_number'], context['quantity'] = name2, address2, number2, quantity
     order_info.save()
     return render(request, 'success.html', context)

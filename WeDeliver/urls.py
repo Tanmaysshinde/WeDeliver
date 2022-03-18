@@ -8,7 +8,7 @@ favicon_view = RedirectView.as_view(url=staticfiles_storage.url('media/favicon.p
 urlpatterns = [
     path('', home, name=''),
     path('home', home, name='home'),
-    path('map', map, name='map'),
+    path('placeorder', placeorder, name='placeorder'),
     path('aboutus', aboutus, name='aboutus'),
     path('contactus', Contactus, name='contactus'),
     path('success', success, name='success'),

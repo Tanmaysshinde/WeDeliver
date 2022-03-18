@@ -9,7 +9,7 @@
       <div class="d-block d-sm-none">
         <br><br><br><br><br>
       </div>
-      <div class="col-12 col-sm-7 d-none d-sm-block">
+      <div class="col-12 col-sm-7 d-none d-sm-block border-end">
         <img src="{% static 'media/login.svg' %}" alt="login in" class="img-fluid">
       </div>
       <div class="col-12 col-sm-4">
@@ -50,7 +50,7 @@
                           <div class="d-flex mb-4 align-items-center font_size_12">
                               <div class="col-6">
                                   {{ loginform.remember_me }}
-                                  <a class="cursorpointer" onclick="check()">Remember Me</a>
+                                  <a class="cursorpointer" onclick="check(0)">Remember Me</a>
                               </label>
                               </div>
                               <div class="col-6">

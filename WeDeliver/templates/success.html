@@ -17,11 +17,15 @@
             <div class="card-body">
                 <div class="row mb-3  mt-3">
                     <div class="col-12 col-sm-6">
-                        <h4>Order Id : <span class="text-success">{{ order_id }}</span></h2>
+                        <h2>Order Id : <span class="text-success">{{ order_id }}</span></h2>
                     </div>
                     <div class="col-12 col-sm-6">
-                        <h4>Order Date : <span class="text-warning">{{ date }}</span></h2>
+                        <h2>Order Date : <span class="text-warning">{{ date }}</span></h2>
                     </div>
+                </div>
+                <div class="row mb-3  mt-3">
+                    <h2>Order Type : <span class="text-success">{{ type | title }}</span></h2>
+                </div>
                 <div>
                     <h4>Pickup Point</h4>
                     <div class="mt-3">

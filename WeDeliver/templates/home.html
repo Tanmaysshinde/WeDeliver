@@ -17,7 +17,7 @@
             <div class="row">
                 {% for p in price %}
                     <div class="col-12 col-sm-4 mt-4" id="Document">
-                        <a class="text-decoration-none" href="{% url 'map' %}">
+                        <a class="text-decoration-none" href="{% url 'placeorder' %}">
                             <div class="card card_home bg-dark text-light">
                                 <div class="card-body" onclick="card('document')">
                                     <div class="h1 mb-3 text-center">
@@ -43,7 +43,7 @@
                         </a>
                     </div>
                     <div class="col-12 col-sm-4 mt-4" id="Food">
-                        <a class="text-decoration-none" href="{% url 'map' %}">
+                        <a class="text-decoration-none" href="{% url 'placeorder' %}">
                             <div class="card card_home bg-success text-dark">
                                 <div class="card-body" onclick="card('food')">
                                     <div class="h1 mb-3 text-center">
@@ -73,7 +73,7 @@
                         </a>
                     </div>
                     <div class="col-12 col-sm-4 mt-4" id="Package">
-                        <a class="text-decoration-none" href="{% url 'map' %}">
+                        <a class="text-decoration-none" href="{% url 'placeorder' %}">
                             <div class="card card_home bg-primary text-light">
                                 <div class="card-body" onclick="card('package')">
                                     <div class="h1 mb-3 text-center">

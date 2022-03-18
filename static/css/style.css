@@ -27,9 +27,13 @@ input, textarea {
   color: #788188;
 }
 
-#kg, #pages_no {
+#kg, #pages_no, #ice {
   margin-left: 10px;
   font-size: 0.9rem;
+  color: #788188;
+}
+
+#ice2 {
   color: #788188;
 }
 
@@ -38,6 +42,11 @@ input, textarea {
   font-size: 0.9rem;
   color: #788188;
   padding: 0px 0px 0px 6px;
+}
+
+.end {
+  justify-content: end;
+  display: grid;
 }
 
 .price {
