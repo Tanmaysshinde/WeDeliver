@@ -155,7 +155,8 @@ SITE_ID = 1
 
 LOGIN_REDIRECT_URL = "/WeDeliver/"
 
-LOGIN_REQUIRED_URL = "/WeDeliver/"
+LOGIN_REQUIRED_URL = "/WeDeliver/"  
+
 SOCIALACCOUNT_PROVIDERS = {
     'google': {
         'SCOPE': [
