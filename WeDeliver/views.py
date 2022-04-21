@@ -444,6 +444,7 @@ def resend_phone_no_otp(request):
 
 def resend_email_otp(request):
     email_otp(request)
+    return render(request, "profile.html", context)
 
 def phone_no_otp_verification(request):
     global verified_phone_no, phonenootpverification, phone_verify_flag
