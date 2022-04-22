@@ -62,7 +62,7 @@ MIDDLEWARE = [
     'django_session_timeout.middleware.SessionTimeoutMiddleware',
 ]
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
+STATICFILES_STORAGE =  'django.contrib.staticfiles.storage.StaticFilesStorage' 
 
 ROOT_URLCONF = 'WebProject.urls'
 
