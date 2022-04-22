@@ -128,12 +128,11 @@ def password_reset_request(request):
                 email_otp_info = { 
                     'name' : name,				
                     "email":user.email,
-                    'domain':'localhost:8000',
-                    'site_name': 'WeDeliver',
+                    'domain':'wedeliver123.herokuapp.com',
                     "uid": urlsafe_base64_encode(force_bytes(user.pk)),
                     "user": user,
                     'token': default_token_generator.make_token(user),
-                    'protocol': 'http',
+                    'protocol': 'https',
                 }
                 email_api()
                 subject = "Password Reset Requested"
@@ -397,9 +396,8 @@ def email_otp(request):
     email_otp_info = { 
         'name' : name,
         'OTP' : OTP,
-        'domain':'localhost:8000',
-        'site_name': 'WeDeliver',
-        'protocol': 'http',
+        'domain':'https://wedeliver123.herokuapp.com/',
+        'protocol': 'https',
     }
     email_api()
     subject = "OTP"

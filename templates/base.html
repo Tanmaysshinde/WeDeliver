@@ -74,7 +74,9 @@
                     {% endif %}
                 </ul>
             </div>
-            {% if '/' in request.path %}
+            {% if 'password' in request.path %}
+
+            {% else %}
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto">
                         {% if user.is_authenticated %}
@@ -111,9 +113,8 @@
                             </li>
                         {% endif %}
                     </ul>
-                </div>
-            </div>
-        {% endif %}
+            `   </div>
+            {% endif %}
     </nav>
 
     <!-- Location Modal -->
