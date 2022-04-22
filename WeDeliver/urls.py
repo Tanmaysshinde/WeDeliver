@@ -1,9 +1,5 @@
 from django.urls import path, include
 from .views import *
-from django.contrib.staticfiles.storage import staticfiles_storage
-from django.views.generic.base import RedirectView
-
-favicon_view = RedirectView.as_view(url=staticfiles_storage.url('media/favicon.png'))
 
 urlpatterns = [
     path('', home, name=''),
@@ -26,6 +22,5 @@ urlpatterns = [
     path('signup', signup, name="signup"),
     path('logout', logout, name='logout'),
     path('login', login, name="login"),
-    path('favicon.ico', favicon_view),
     path("password_reset", password_reset_request, name="password_reset"),
 ]
