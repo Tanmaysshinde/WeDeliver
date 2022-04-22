@@ -1,1 +1,1 @@
-web: gunicorn WeDeliver.wsgi
+web: gunicorn WebProject.wsgi 
