@@ -22,10 +22,6 @@ from django.contrib.auth import views as auth_views
 from WeDeliver.forms import *
 from WeDeliver.views import *
 
-
-from django.views.static import serve
-from django.conf.urls import url
-
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('WeDeliver/', include('WeDeliver.urls')),
@@ -34,10 +30,7 @@ urlpatterns = [
     path('password_reset/done/', auth_views.PasswordResetDoneView.as_view(template_name='reset_password_done.html'), name='password_reset_done'),
     path('reset/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(template_name="reset_password_confirm.html"), name='password_reset_confirm'),
     path('reset/done/', auth_views.PasswordResetCompleteView.as_view(template_name='reset_password_complete.html'), name='password_reset_complete'),
-
-    url(r'^media/(?P<path>.*)$', serve,{'document_root':       settings.MEDIA_ROOT}), 
-    url(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}), 
-]
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 
 if settings.DEBUG:

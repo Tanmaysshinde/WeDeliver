@@ -32,6 +32,7 @@ ALLOWED_HOSTS = ['localhost', 'wedeliver123.herokuapp.com']
 # Application definition
 
 INSTALLED_APPS = [
+    'whitenoise.runserver_nostatic',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -60,6 +61,8 @@ MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django_session_timeout.middleware.SessionTimeoutMiddleware',
 ]
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
 ROOT_URLCONF = 'WebProject.urls'
 
@@ -142,7 +145,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = '/static/media'
+STATIC_ROOT = os.path.join(BASE_DIR,'static')
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static/')
