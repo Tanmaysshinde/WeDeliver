@@ -25,7 +25,6 @@ from WeDeliver.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('WeDeliver.urls')),
-    path('WeDeliver/', include('WeDeliver.urls')),
     path('accounts/', include('allauth.urls')),
     path('', TemplateView.as_view(template_name="social_app/index.html")),
     path('password_reset/done/', auth_views.PasswordResetDoneView.as_view(template_name='reset_password_done.html'), name='password_reset_done'),
