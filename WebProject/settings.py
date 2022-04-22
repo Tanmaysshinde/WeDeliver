@@ -25,10 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-vk5p6s#^t#cjb)q9*)gj6-qb1&c)04j3#@^tlvlp624$fxmf()'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-if os.environ.get == "heroku":
-    DEBUG = False
-else:
-    DEBUG = True
+DEBUG = bool(os.environ.get("DEBUG", False))
 
 ALLOWED_HOSTS = ['localhost', 'wedeliver123.herokuapp.com']
 
@@ -161,9 +158,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'profilepic')
 
 SITE_ID = 1
 
-LOGIN_REDIRECT_URL = "/WeDeliver/"
+LOGIN_REDIRECT_URL = "/"
 
-LOGIN_REQUIRED_URL = "/WeDeliver/"  
+LOGIN_REQUIRED_URL = "/"  
 
 SOCIALACCOUNT_PROVIDERS = {
     'google': {
@@ -202,7 +199,7 @@ django_heroku.settings(locals(), logging=False)
 
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 
-SESSION_TIMEOUT_REDIRECT = '/WeDeliver/'
+SESSION_TIMEOUT_REDIRECT = '/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
