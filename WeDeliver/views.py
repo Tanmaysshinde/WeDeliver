@@ -30,6 +30,7 @@ from datetime import date
 context = {}
 
 context['google_map_key'] = settings.GOOGLE_API_KEY
+context['send_in_blue_key'] = settings.SENDINBLUE_API_KEY
 
 def signupform():
     signup_form = signup_Form()
