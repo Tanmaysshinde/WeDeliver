@@ -34,7 +34,7 @@
                       <div class="mb-3">
                         <b><p class="m-2 font_size_30">Log In</p></b>
                       </div>
-                      <span class="text-center mb-2 font_size_16">Welcome Back!! New to WeDeliver?<a href="{% url 'signup' %}"> Create Account</a></span>.
+                      <span class="text-center mb-2 font_size_16">Welcome Back!! New to WeDeliver?<a href="{% url 'signup' %}"> Create Account.</a></span>
                       <form action="{% url 'login' %}?next={{ request.META.HTTP_REFERER }}" method="POST">
                         {% csrf_token %}
                           <div class="mb-2" id="username">

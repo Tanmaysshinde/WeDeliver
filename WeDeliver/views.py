@@ -110,7 +110,11 @@ def logout(request):
     request.session.flush()
     request.session.clear_expired()
     auth.logout(request)
-    return redirect(request.GET.get('next'))
+    print(request.GET.get('next'))
+    if '/profile' in request.GET.get('next') or '/my-orders' in request.GET.get('next') or '/success' in request.GET.get('next'):
+        return redirect('home')
+    else:
+        return redirect(request.GET.get('next'))
 
 def password_reset_request(request):
     loginform()
