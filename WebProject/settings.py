@@ -180,7 +180,18 @@ SOCIALACCOUNT_PROVIDERS = {
     }
 }
 
-django_heroku.settings(locals())
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "handlers": {"console": {"class": "logging.StreamHandler"}},
+    "loggers": {
+        "": {"handlers": ["console"], "level": "INFO"},
+        "django": {"handlers": ["console"], "level": "INFO"},
+    },
+}
+
+# Activate Django-Heroku settings except logging
+django_heroku.settings(locals(), logging=False)
 
 # SESSION_COOKIE_AGE = 14000
 
