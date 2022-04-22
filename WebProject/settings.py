@@ -67,12 +67,17 @@ STATICFILES_STORAGE =  'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 ROOT_URLCONF = 'WebProject.urls'
 
+try:
+    temp_dir = os.path.join(BASE_DIR, 'templates')
+except:
+    temp_dir = os.path.join(BASE_DIR, 'base', 'templates')
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            os.path.join(BASE_DIR, 'templates')
-        ],
+            temp_dir,
+            ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
