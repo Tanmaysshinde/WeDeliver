@@ -158,7 +158,7 @@ def password_reset_request(request):
     context['forget_password_form'] = forget_password_Form()
     return render(request, 'reset_password.html', context)
 
-def home(request):
+def index(request):
     loginform()
     signupform()
     context['price'] = price.objects.all()
@@ -401,7 +401,7 @@ def email_otp(request):
     email_otp_info = { 
         'name' : name,
         'OTP' : OTP,
-        'domain':'https://wedeliver123.herokuapp.com/',
+        'domain':'wedeliver123.herokuapp.com/',
         'protocol': 'https',
     }
     email_api()
